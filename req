@@ -38,3 +38,12 @@ curl -X POST http://localhost:3000/login \
     "name": "xxx",
     "pass": "xxx"
 }'
+
+curl -X POST  https://habitheroserver-production.up.railway.app/login \
+-H "Content-Type: application/json" \
+-H "Authorization: xxx" \
+-d '{
+    "name": "xxx",
+    "pass": "xxx"
+}'
+

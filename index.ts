@@ -101,10 +101,10 @@ app.put("/users/:userId/habits/:habitId", async (req: Request, res: Response) =>
 });
 // Default habits to be initialized for each new user
 const defaultHabits: IHabit[] = [
-    { id: new mongoose.Types.ObjectId().toString(), name: "Flotari", points: 0, lastUpdated: new Date() },
-    { id: new mongoose.Types.ObjectId().toString(), name: "Oil Pulling", points: 0, lastUpdated: new Date() },
-    { id: new mongoose.Types.ObjectId().toString(), name: "Meditare", points: 0, lastUpdated: new Date() },
-    { id: new mongoose.Types.ObjectId().toString(), name: "Reading", points: 0, lastUpdated: new Date() },
+    { id: new mongoose.Types.ObjectId().toString(), name: "Flotari", points: 0, lastUpdated:  new Date(2014, 4, 14) },
+    { id: new mongoose.Types.ObjectId().toString(), name: "Oil Pulling", points: 0, lastUpdated:  new Date(2014, 4, 14) },
+    { id: new mongoose.Types.ObjectId().toString(), name: "Meditare", points: 0, lastUpdated:  new Date(2014, 4, 14) },
+    { id: new mongoose.Types.ObjectId().toString(), name: "Reading", points: 0, lastUpdated:  new Date(2014, 4, 14) },
 
 ];
 
