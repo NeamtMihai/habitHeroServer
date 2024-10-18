@@ -139,6 +139,38 @@ app.post("/register", async (req: Request, res: Response) => {
     }
 });
 
+// Login a user
+app.post("/login", async (req: Request, res: Response) => {
+    const { name, pass } = req.body;
+
+    if (!name || !pass) {
+        return res.status(400).send("Name and password are required");
+    }
+
+    try {
+        // Find the user by name
+        const user = await UserModel.findOne({ name }).exec();
+        if (user) {
+            // Compare the provided password with the stored password
+            if (user.pass === pass) { // Consider hashing passwords for security
+                res.json({
+                    id: user.id,
+                    name: user.name,
+                    habits: user.habits, // You may want to include some data about habits or omit it for security
+                });
+            } else {
+                res.status(401).send("Invalid password");
+            }
+        } else {
+            res.status(404).send("User not found");
+        }
+    } catch (error) {
+        console.error("Error logging in:", error);
+        res.status(500).send("Server error");
+    }
+});
+
+
 // Increment habit points by 1
 app.patch("/users/:userId/habits/:habitId/increment", async (req: Request, res: Response) => {
     const userId = req.params.userId;

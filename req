@@ -23,3 +23,18 @@ curl -X PATCH -H "Content-Type: application/json" \
 curl http://localhost:3000/users/66d85a87353088ae1fd6df08
 
 curl -H "Authorization: your_api_key_here" -H "Content-Type: application/json"  http://localhost:3000/users
+
+
+curl -H "Authorization: your_api_key_here" -H "Content-Type: application/json"  https://habitheroserver-production.up.railway.app/ip
+
+curl -H "Authorization: your_api_key_here" -H "Content-Type: application/json"  https://habitheroserver-production.up.railway.app/users
+
+
+
+curl -X POST http://localhost:3000/login \
+-H "Content-Type: application/json" \
+-H "Authorization: xxx" \
+-d '{
+    "name": "xxx",
+    "pass": "xxx"
+}'
