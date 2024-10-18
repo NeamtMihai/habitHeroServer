@@ -24,8 +24,12 @@ app.use(bodyParser.json());
 app.use(apiKeyMiddleware);
 
 // Connect to MongoDB
-connectDB();
+//connectDB();
 
+app.get('/ip', (req, res) => {
+    res.send({ ip: req.ip });
+  });
+  
 // Get all users
 app.get("/users", async (req: Request, res: Response) => {
     try {
