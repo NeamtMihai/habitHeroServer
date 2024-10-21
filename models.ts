@@ -26,8 +26,9 @@ const HabitSchema = new Schema<Habit>({
 HabitSchema.methods.has24HoursPassed = function (): boolean {
     const now = new Date();
     const lastUpdated = new Date(this.lastUpdated);
-    const hoursPassed = (now.getTime() - lastUpdated.getTime()) / (1000 * 60 * 60);
-    return hoursPassed >= 24;
+    now.setHours(0, 0, 0, 0);
+    lastUpdated.setHours(0, 0, 0, 0);
+    return now > lastUpdated;
 };
 
 const UserSchema: Schema = new Schema({
